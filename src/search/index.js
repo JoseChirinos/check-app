@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 
+import InputSearch from './input-search';
+import Result from './result';
 class Search extends Component{
   render(){
     return(
-      <div>
-        Hola MUNDO
-      </div>
+      <section>
+        <InputSearch/>
+        <Result open={true} />
+      </section>
     )
   }
 };

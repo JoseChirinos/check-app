@@ -1,0 +1,51 @@
+.products{
+  text-align: center;
+}
+.product-option{
+  background-color: #9aa1cc;
+  display: block;
+  padding: 20px;
+  border-radius: 50%;
+}
+.product-option img{
+  width: 100px;
+  height: 100px;
+}
+.product-option-info{
+  position: relative;
+  padding: 15px;
+  background: black;
+  color: #fff;
+  margin: 24px 0px;
+}
+.product-option-info::after{
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: black;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  transform: rotate(45deg);
+  top: -10px;
+}
+.option-container{
+  display: inline-block;
+  margin: 10px 50px;
+}
+.option-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+/* On mouse-over, add a grey background color */
+.option-container:hover input ~ .product-option {
+  background-color: #9aa1cc;
+}
+/* When the radio button is checked, add a blue background */
+.option-container input:checked ~ .product-option {
+  background-color: #E91E63;
+  box-shadow: 1px 1px 25px #3F51B5;
+}
+

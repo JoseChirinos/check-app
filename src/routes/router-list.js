@@ -10,11 +10,7 @@ import Loading from '../common/loading';
 /*404 error*/
 import NoMatch from '../common/notmatch';
 
-/*Home Page*/
-const HomePage = ()=>(
-  <div style={{height:'150vh'}}>Home</div>
-);
-/* Statistics */
+/* Search */
 const Search = Loadable({
   loader: ()=> import('../search'),
   loading: Loading
