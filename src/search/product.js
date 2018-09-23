@@ -1,12 +1,17 @@
 import React from 'react';
 import './product.css';
 
-const Product = ()=>(
+const Product = (props)=>(
   <aside>
 
     <div className="products">
-      <label className="option-container" htmlFor="product1a">
-        <input type="radio" id="product1a" name="product1" value="product1a"/>
+      <label className="option-container" htmlFor={ `product_${props.num}_1a` }>
+        {
+            props.data.plato === 'Parrilla de Pollo'  ?
+            <input type="radio" id={ `product_${props.num}_1a` } name={ `product_${props.num}_1` } value="Parrilla de Pollo" checked={true} onChange={ ()=>{} }/>
+            :
+            <input type="radio" id={ `product_${props.num}_1a` } name={ `product_${props.num}_1` } value="Parrilla de Pollo"/>
+        }
         <div className="product-option">
           <img src="/assets/images/chicken.svg" alt=""/>
         </div>
@@ -15,8 +20,13 @@ const Product = ()=>(
         </div>
       </label>
 
-      <label className="option-container" htmlFor="product1b">
-        <input type="radio" id="product1b" name="product1" value="product1b"/>
+      <label className="option-container" htmlFor={ `product_${props.num}_1b` }>
+        {
+          props.data.plato === 'Lomito de Carne'  ?
+          <input type="radio" id={ `product_${props.num}_1b` } name={ `product_${props.num}_1` } value="Lomito de Carne" checked={true} onChange={ ()=>{} }/>
+          :
+          <input type="radio" id={ `product_${props.num}_1b` } name={ `product_${props.num}_1` } value="Lomito de Carne"/>
+        }
         <div className="product-option">
           <img src="/assets/images/meat.svg" alt=""/>
         </div>
@@ -27,8 +37,13 @@ const Product = ()=>(
     </div>
 
     <div className="products">
-      <label className="option-container" htmlFor="product2a">
-        <input type="radio" id="product2a" name="product2" value="product2a"/>
+      <label className="option-container" htmlFor={ `product_${props.num}_2a` }>
+        {
+            props.data.bebida === 'Soda'  ?
+            <input type="radio" id={ `product_${props.num}_2a` } name={ `product_${props.num}_2` } value="Soda" checked={ true } onChange={ ()=>{} }/>
+            :
+            <input type="radio" id={ `product_${props.num}_2a` } name={ `product_${props.num}_2` } value="Soda"/>
+        }
         <div className="product-option">
           <img src="/assets/images/soda.svg" alt=""/>
         </div>
@@ -37,8 +52,13 @@ const Product = ()=>(
         </div>
       </label>
 
-      <label className="option-container" htmlFor="product2b">
-        <input type="radio" id="product2b" name="product2" value="product2b"/>
+      <label className="option-container" htmlFor={ `product_${props.num}_2b` }>
+        {
+            props.data.bebida === 'Cerveza'  ?
+            <input type="radio" id={ `product_${props.num}_2b` } name={ `product_${props.num}_2` } value="Cerveza" checked={ true } onChange={ ()=>{} }/>
+            :
+            <input type="radio" id={ `product_${props.num}_2b` } name={ `product_${props.num}_2` } value="Cerveza"/>
+        }
         <div className="product-option">
           <img src="/assets/images/beer.svg" alt=""/>
         </div>

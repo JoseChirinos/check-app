@@ -1,0 +1,25 @@
+.login{
+  position: relative;
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 150px;
+  padding: 25px 0px;
+  border-radius: 5px;
+  background-color: #fff;
+  text-align: center;
+}
+.login svg{
+  width: 130px;
+}
+.login-face{
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  font-size: 18px;
+  border: 0;
+  padding: 15px;
+  background-color: #4267b2;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}

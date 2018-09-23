@@ -1,0 +1,38 @@
+/* Loader */
+.loader{
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1.1s linear infinite;
+  border: 3px solid #d8dbdd;
+  border-top: 3px solid #4050d1;
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
+  margin: 20px auto;
+}
+.sign-loader-wp{
+  height: 130px!important;
+}
+@-webkit-keyframes spin {
+  50% {
+    border-top-color: #187bd2;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  100% {
+    border-top-color: #4e4b4b;
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  50% {
+    border-top-color: #187bd2;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  100% {
+    border-top-color: #4e4b4b;
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}

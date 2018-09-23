@@ -15,10 +15,15 @@ const Search = Loadable({
   loader: ()=> import('../search'),
   loading: Loading
 });
+const Carreras = Loadable({
+  loader: ()=> import('../carreras'),
+  loading: Loading
+});
 const RouterList = (props)=>{
   return(
     <Switch>
       <Route exact path="/" component={ Search }/>
+      <Route exact path="/carreras" component={ Carreras }/>
       <Route component={NoMatch} />
     </Switch>        
   )

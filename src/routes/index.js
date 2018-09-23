@@ -4,6 +4,8 @@ import RouterList from './router-list';
 import Main from '../main';
 import Login from '../login';
 
+import firebase, { provider, auth } from '../firebase';
+
 class RouterApp extends Component {
   state = {
     auth: true
@@ -13,13 +15,41 @@ class RouterApp extends Component {
       auth:true
     })
   }
+  /*
+  handleLogin = ()=>{
+    let self = this;
+    // Verifica si tiene usuario logueado
+    auth.onAuthStateChanged(function(user){
+      if(user){
+        self.setState({
+          user:user,
+          auth:true
+        });
+        return false;
+      }
+    });
+
+    // Iniciar Session
+    provider.addScope('public_profile');
+    auth.signInWithPopup(provider)
+    .then(function(user){
+      //console.log(user);
+      self.setState({
+        auth: true,
+        user: user
+      })
+    })
+    .catch(function(err){
+      console.log(err);
+    })
+  }*/
   render(){
     return(
       <Router>
         {
           this.state.auth ?
           <Main>
-            <RouterList/>
+            <RouterList user={ this.state.user }/>
           </Main>
           : <Login handleLogin={ this.handleLogin }/>
         }

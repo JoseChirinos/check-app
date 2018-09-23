@@ -1,0 +1,28 @@
+.message{
+  position: absolute;
+  width: 500px;
+  padding: 15px;
+  margin: 0 auto;
+  top: -50%;
+  left: 0;
+  right: 0;
+  background: #E91E63;
+  color: #ffffff;
+  font-size: 40px;
+  text-align: center;
+  border-radius: 0px 0px 10px 10px;
+  animation-name: entry;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+@keyframes entry{
+  0%{
+    top:-50%;
+  }
+  100%{
+    top: 0px;
+  }
+}
