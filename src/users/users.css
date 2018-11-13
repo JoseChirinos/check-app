@@ -1,0 +1,62 @@
+.form-password{
+  width:100%;
+  padding: 75px 0px;
+}
+.input-access{
+  display: block;
+  margin: 0 auto;
+  width: 250px;
+  padding: 15px;
+  border: 0;
+  border-radius: 20px;
+  font-size: 16px;
+  outline: none;
+}
+.input-password{
+  background: #313131;
+  color: #fff;
+}
+.input-user{
+  margin: 15px auto;
+  border: 1px solid silver;
+  max-width: 350px;
+}
+
+.form-user{
+  width:100%;
+  height: 100vh;
+  background: #fff;
+  padding: 45px 0px;
+}
+.form-user form{
+  padding: 25px 0px;
+  border: 1px solid #d9d9d9;
+}
+.form-user label{
+  display: block;
+  text-align: center;
+  color: #959595;
+}
+.form-user-title{
+  text-align: center;
+}
+.form-user button{
+  display: block;
+  width: 250px;
+  font-size: 16px;
+  padding: 15px;
+  margin: 45px auto;
+  border: 0;
+  border-radius: 10px;
+  background-color: #187bd2;
+  color: #d8dbdd;
+  outline: none;
+  cursor: pointer;
+}
+
+.input-password::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #e9eabe;
+}
+.input-user::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #7c7c7c;
+}

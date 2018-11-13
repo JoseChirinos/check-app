@@ -4,13 +4,17 @@ import './input-search.css';
 const InputSearch = (props)=>(
   <div className="input-search-container">
     <form onSubmit={ props.handleSearch }>
-      <img className="input-search-image" src="/assets/images/search.svg" alt=""/>
-      <input className="input-search" autoComplete="off" type="text" id="inputSearch" placeholder="Buscar..."/>
+      <input className="input-search" autoComplete="off" type={ props.type } id="inputSearch" placeholder="Buscar..." required="required"/>
+      <button
+        type="submit"
+        className="btn-search"
+      >
+        <img className="input-search-image" src="/assets/images/search.svg" alt=""/>
+      </button>
       <div className="input-search-help">
         (*) La busqueda se lo puede realizar con: <br/>
         <ul>
-          <li>1.- Carnet Universitario</li>
-          <li>2.- Carnet de Identidad</li>
+          <li>Carnet de Identidad</li>
         </ul>
       </div>
     </form>

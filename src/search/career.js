@@ -30,7 +30,7 @@ const Career = (props)=>{
         {career_name}
       </h3>
       <small>( { `Carnet Universitario: ${props.cu} - Código: ${props.id}` } )</small>
-      <span>{(props.num + 1)}</span>
+      <span style={{ backgroundColor: color }}>{(props.num + 1)}</span>
     </div>
   )
 }

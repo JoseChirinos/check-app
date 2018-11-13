@@ -15,6 +15,17 @@ const Search = Loadable({
   loader: ()=> import('../search'),
   loading: Loading
 });
+/* Manillas */
+const Manillas = Loadable({
+  loader: ()=> import('../manillas'),
+  loading: Loading
+});
+/* Users */
+const Users = Loadable({
+  loader: ()=> import('../users'),
+  loading: Loading
+});
+/* Carreras */
 const Carreras = Loadable({
   loader: ()=> import('../carreras'),
   loading: Loading
@@ -22,8 +33,9 @@ const Carreras = Loadable({
 const RouterList = (props)=>{
   return(
     <Switch>
-      <Route exact path="/" component={ Search }/>
+      <Route exact path="/" component={ Manillas }/>
       <Route exact path="/carreras" component={ Carreras }/>
+      <Route exact path="/users" component={ Users }/>
       <Route component={NoMatch} />
     </Switch>        
   )

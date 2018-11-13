@@ -25,3 +25,17 @@
   line-height: 50px;
   font-size: 35px;
 }
+@media (max-width:780px){
+  .career{
+    width: 90%;
+  }
+  .career span{
+    top: -15px;
+    left: -5px;
+    background: #e91e63;
+    font-size: 15px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+}

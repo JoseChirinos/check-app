@@ -4,54 +4,80 @@ import RouterList from './router-list';
 import Main from '../main';
 import Login from '../login';
 
-import firebase, { provider, auth } from '../firebase';
+import { AuthService } from '../services/auth-service';
 
 class RouterApp extends Component {
-  state = {
-    auth: true
-  }
-  handleLogin = (e)=>{
-    this.setState({
-      auth:true
-    })
-  }
-  /*
-  handleLogin = ()=>{
-    let self = this;
-    // Verifica si tiene usuario logueado
-    auth.onAuthStateChanged(function(user){
-      if(user){
-        self.setState({
-          user:user,
-          auth:true
-        });
-        return false;
+  constructor(props){
+    super();
+    let user  =  AuthService.checkSessionOff();
+    if(user){
+      this.state = {
+        auth: true,
+        user: user,
+        messageToggle: false,
+        message:''
       }
-    });
-
-    // Iniciar Session
-    provider.addScope('public_profile');
-    auth.signInWithPopup(provider)
-    .then(function(user){
-      //console.log(user);
+    }else{
+      this.state = {
+        auth: false,
+        user: {},
+        messageToggle: false,
+        message:''
+      }
+    }
+    this.emailInput = React.createRef();
+    this.passwordInput = React.createRef();
+  }
+  signIn = (e)=> {
+    e.preventDefault();
+    let self = this;
+    let email = this.emailInput.current.value;
+    let password = this.passwordInput.current.value;
+    AuthService.signIn(email, password,(user)=>{
+      AuthService.createSession(user);
       self.setState({
         auth: true,
-        user: user
+        user,
+        messageToggle: false
       })
+    },(error)=>{
+      if(error.code==="auth/user-not-found"){
+        self.setState({
+          messageToggle: true,
+          message:'Usted no esta registrado'
+        })
+      }
+      if(error.code==="auth/wrong-password"){
+        self.setState({
+          messageToggle: true,
+          message:'Contraseña incorrecta'
+        })
+      }
     })
-    .catch(function(err){
-      console.log(err);
+  }
+  signOut = ()=>{
+    AuthService.signOut();
+    this.setState({
+      auth:false
     })
-  }*/
+  }
   render(){
     return(
       <Router>
         {
           this.state.auth ?
-          <Main>
+          <Main
+            signOut = { this.signOut }
+          >
             <RouterList user={ this.state.user }/>
           </Main>
-          : <Login handleLogin={ this.handleLogin }/>
+          : <Login 
+              signIn = { this.signIn }
+              emailInput = { this.emailInput }
+              passwordInput = { this.passwordInput }
+              messageToggle = { this.state.messageToggle }
+              message = { this.state.message }
+            />
         }
       </Router>
     )

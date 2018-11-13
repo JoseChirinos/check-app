@@ -13,6 +13,7 @@ class Carreras extends Component{
       all:0,
       chelas:0,
       sodas:0,
+      allTele:[]
     }
   }
   verSoda = ()=>{
@@ -126,10 +127,32 @@ class Carreras extends Component{
         self.showMessage("Error de conexion");
       });
   }
+  getDatosAll = ()=>{
+    let self = this;
+    db.collection("estudiantes")
+    .where("career","==","tel")
+    .where("check","==",true)
+      .get()
+      .then(function(docs){
+        let result = new Array();
+        console.log(result)
+        docs.forEach(function(doc){
+          result.push(doc.data());
+        });
+        self.setState({
+          allTele: result
+        })
+      })
+      .catch(function(error){
+        console.log("error");
+      });
+  }
   
   render(){
     return(
       <div>
+        {/*
+        
         <h4>Sistemas</h4>
         <h1>{ this.state.sis }</h1>
         <button onClick={ this.verSistemas }>ver</button>
@@ -157,6 +180,29 @@ class Carreras extends Component{
         <h3>Total Chelas:</h3>
         <h1>{ this.state.chelas }</h1>
         <button onClick={ this.verChelas }>ver</button>
+        */}
+        <button onClick={ this.getDatosAll }>Get Datos</button>
+
+        <table>
+          <tr>
+            <td>Nombre</td>
+            <td>CU</td>
+            <td>CI</td>
+            <td>Celular</td>
+          </tr>
+            {
+              this.state.allTele.map((i)=>(
+                <tr>
+                  <td>{ i.full_name }</td>
+                  <td>{ i.cu }</td>
+                  <td>{ i.ci }</td>
+                  <td>{ i.cellphone }</td>
+                </tr>
+              ))
+            }
+        </table>
+        
+        
       </div>
     )
   }
